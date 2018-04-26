@@ -52,6 +52,7 @@ type Session struct {
 	lastSQLArgs []interface{}
 
 	err error
+	whered  bool
 }
 
 // Clone copy all the session's content and return a new session

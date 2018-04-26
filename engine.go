@@ -573,6 +573,12 @@ func (engine *Engine) Where(query interface{}, args ...interface{}) *Session {
 	return session.Where(query, args...)
 }
 
+func (engine *Engine) Filter (query interface{}, args ...interface{}) *Session{
+	session := engine.NewSession()
+	session.isAutoClose = true
+	return session.Filter(query, args...)
+}
+
 // Id will be deprecated, please use ID instead
 func (engine *Engine) Id(id interface{}) *Session {
 	session := engine.NewSession()

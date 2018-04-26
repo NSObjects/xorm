@@ -188,6 +188,7 @@ func (session *Session) find(rowsSlicePtr interface{}, condiBean ...interface{})
 		}
 	}
 
+	session.whered = false
 	return session.noCacheFind(table, sliceValue, sqlStr, args...)
 }
 

@@ -27,6 +27,16 @@ func (session *Session) Where(query interface{}, args ...interface{}) *Session {
 	return session
 }
 
+func (session *Session) Filter(query interface{}, args ...interface{}) *Session  {
+	if session.whered == false {
+		session.whered = true
+		session.statement.Where(query, args...)
+	} else {
+		session.statement.And(query, args...)
+	}
+	return session
+}
+
 // And provides custom query condition.
 func (session *Session) And(query interface{}, args ...interface{}) *Session {
 	session.statement.And(query, args...)
